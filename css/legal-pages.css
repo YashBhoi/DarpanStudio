@@ -1,0 +1,129 @@
+/* ===========================
+   APPLE-STYLE LEGAL PAGES
+=========================== */
+
+:root {
+  --bg: #0e0e11;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --text-dark: white;
+  --text-light: #6e6e73;
+  --accent: #0071e3;
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --blur: blur(20px);
+}
+  
+/* PAGE BASE */
+body {
+  background: var(--bg);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Inter", system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+/* MAIN WRAPPER */
+.legal-wrapper {
+  max-width: 980px;
+  margin: 120px auto 80px;
+  padding: 0 20px;
+}
+
+/* PAGE TITLE */
+.legal-header {
+  margin-bottom: 40px;
+}
+
+.legal-header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.legal-header p {
+  margin-top: 8px;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* CONTENT CARD */
+.legal-card {
+  background: var(--card-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-soft);
+}
+
+/* SECTIONS */
+.legal-card section {
+  margin-bottom: 36px;
+}
+
+.legal-card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.legal-card p,
+.legal-card li {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* LISTS */
+.legal-card ul {
+  padding-left: 20px;
+}
+
+.legal-card li {
+  margin-bottom: 10px;
+}
+
+/* LINKS */
+.legal-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.legal-card a:hover {
+  text-decoration: underline;
+}
+
+/* LAST UPDATED */
+.last-updated {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-align: right;
+}
+
+/* ===========================
+   MOBILE OPTIMIZATION
+=========================== */
+@media (max-width: 768px) {
+  .legal-wrapper {
+    margin-top: 100px;
+  }
+
+  .legal-card {
+    padding: 26px;
+    border-radius: 18px;
+  }
+
+  .legal-header h1 {
+    font-size: 2rem;
+  }
+
+  .legal-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .legal-card p,
+  .legal-card li {
+    font-size: 0.95rem;
+  }
+}
