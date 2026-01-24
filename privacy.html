@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy | Darpan Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/legal-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="legal-wrapper">
+  <header class="legal-header">
+    <h1>Privacy Policy</h1>
+    <p>Your privacy matters to us</p>
+  </header>
+
+  <section class="legal-card">
+    <h2>Information We Collect</h2>
+    <p>We may collect your name, phone number, email, and project details when you contact us.</p>
+
+    <h2>How We Use Information</h2>
+    <p>Your data is used only to provide photography & videography services.</p>
+
+    <h2>Data Protection</h2>
+    <p>We never sell or misuse your personal information.</p>
+
+    <p class="updated">Last updated: January 2026</p>
+  </section>
+</main>
+
+<div id="footer"></div>
+
+<script>
+fetch("partials/header.html").then(r=>r.text()).then(d=>header.innerHTML=d);
+fetch("partials/footer.html").then(r=>r.text()).then(d=>footer.innerHTML=d);
+</script>
+
+</body>
+</html>
