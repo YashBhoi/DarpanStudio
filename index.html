@@ -26,6 +26,20 @@
 </head>
 <body>
 
+<!-- PAGE LOADER -->
+<div id="pageLoader">
+  <div class="lens-loader">
+    <div class="lens-ring"></div>
+
+    <!-- LOGO IN CENTER -->
+    <img
+      src="assets/imgs/icon_logo.png"
+      alt="Darpan Studio"
+      class="lens-logo"
+    />
+  </div>
+</div>
+
 
   <header id="header"></header>
 
@@ -477,6 +491,19 @@ document.addEventListener("DOMContentLoaded", () => {
 fetch("partials/header.html").then(r => r.text()).then(d => header.innerHTML = d);
 fetch("partials/footer.html").then(r => r.text()).then(d => footer.innerHTML = d);
 </script>
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    loader.remove();
+  }, 500);
+});
+</script>
+
 </body>
 
 </html>
