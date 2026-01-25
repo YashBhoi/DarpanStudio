@@ -70,6 +70,26 @@
     <!-- Easter egg grid -->
     <div class="rule-grid"></div>
   </div>
+
+
+
+  <div class="drone-wrap">
+  <div class="drone-css">
+    <span class="arm left"></span>
+    <span class="arm right"></span>
+
+    <span class="body"></span>
+
+    <!-- CAMERA -->
+    <span class="cam">
+      <span class="lens"></span>
+    </span>
+
+    <!-- LED -->
+    <span class="led"></span>
+  </div>
+</div>
+
 </section>
 
 
@@ -500,8 +520,24 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     loader.remove();
-  }, 500);
+  }, 800);
 });
+</script>
+<script>
+document.addEventListener("mousemove", e => {
+  const drone = document.querySelector(".drone-css");
+  if (!drone) return;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 12;
+
+  drone.style.transform += ` rotateX(${y}deg) rotateY(${x}deg)`;
+});
+
+window.addEventListener("load", () => {
+  document.querySelector(".drone-wrap")?.classList.add("show");
+});
+
 </script>
 
 </body>
