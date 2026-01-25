@@ -1091,228 +1091,186 @@ h3 {
    PURE CSS DRONE
 =========================== */
 
-.drone-wrap {
-  position: absolute;
-  inset: 0;
+/* ===========================
+   PRO DRONE – WHITE / GREY DJI STYLE
+=========================== */
+#scrollDrone {
+  position: fixed;
+  top: 120px;
+  right: 6%;
+  z-index: 60;
   pointer-events: none;
-  overflow: hidden;
-  z-index: 3;
 }
 
-/* DRONE BASE */
-.drone-css {
-  position: absolute;
-  top: 22%;
-  left: -120px;
-  width: 80px;
-  height: 24px;
-  animation: drone-fly 18s linear infinite,
-             drone-hover 3s ease-in-out infinite;
-  opacity: 0.85;
+/* Drone frame */
+.pro-drone {
+  position: relative;
+  width: 170px;
+  height: 60px;
+  animation: droneFloat 3.2s ease-in-out infinite;
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,0.45))
+    drop-shadow(0 4px 6px rgba(255,255,255,0.2));
 }
 
-/* BODY */
-.drone-css .body {
+/* ===========================
+   ARMS (LIGHT METAL)
+=========================== */
+.arm {
   position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.85);
-  border-radius: 20px;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  top: 24px;
+  width: 42px;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0,
+    #cfcfcf,
+    #f8f8f8
+  );
+  border-radius: 6px;
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+}
+.arm.left { left: -38px; }
+.arm.right { right: -38px; }
+
+/* ===========================
+   BODY (DJI WHITE)
+=========================== */
+.drone-body {
+  width: 170px;
+  height: 38px;
+  background: linear-gradient(
+    180deg,
+    #fdfdfd,
+    #e6e6e6
+  );
+  border-radius: 44px;
+  position: relative;
+  box-shadow:
+    inset 0 -2px 4px rgba(0,0,0,0.15),
+    inset 0 2px 4px rgba(255,255,255,0.6);
 }
 
-/* CAMERA */
-.drone-css .cam {
+/* ===========================
+   LED LIGHTS (AVIATION STYLE)
+=========================== */
+.led {
   position: absolute;
-  bottom: -8px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: blink 1.3s infinite;
+  filter: blur(0.2px);
+}
+.led-left {
+  left: 16px;
+  background: #ff4d4d;
+  box-shadow: 0 0 6px rgba(255,80,80,0.8);
+}
+.led-right {
+  right: 16px;
+  background: #6bff6b;
+  box-shadow: 0 0 6px rgba(120,255,120,0.8);
+}
+
+/* ===========================
+   PROPELLERS (REAL BLUR)
+=========================== */
+.prop {
+  position: absolute;
+  top: -12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  animation: spin 0.12s linear infinite;
+  filter: blur(1.4px);
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.05) 40%,
+    rgba(255,255,255,0.2) 70%
+  );
+}
+.prop-left { left: -52px; }
+.prop-right { right: -52px; }
+
+/* ===========================
+   GIMBAL + CAMERA (REALISTIC)
+=========================== */
+.gimbal {
+  position: absolute;
+  bottom: -24px;
   left: 50%;
-  width: 14px;
-  height: 14px;
-  background: #000;
-  border-radius: 50%;
   transform: translateX(-50%);
-  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.6);
+  animation: gimbalMove 4s ease-in-out infinite;
 }
 
-/* ARMS */
-.drone-css .arm {
-  position: absolute;
-  top: 50%;
-  width: 46px;
-  height: 4px;
-  background: rgba(255,255,255,0.85);
-}
-
-/* LEFT ARM */
-.drone-css .arm.left {
-  left: -38px;
-}
-
-/* RIGHT ARM */
-.drone-css .arm.right {
-  right: -38px;
-}
-
-/* PROPELLERS */
-.drone-css .arm::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(255,255,255,0.9);
+.camera {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #111 30%,
+    #000 60%
+  );
   border-radius: 50%;
-  transform: translateY(-50%);
-  animation: spin 0.6s linear infinite;
+  box-shadow:
+    inset 0 0 0 3px #2a2a2a,
+    0 6px 10px rgba(0,0,0,0.45);
 }
 
-.drone-css .arm.left::after {
-  left: -12px;
+/* ===========================
+   MOTION
+=========================== */
+@keyframes droneFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
 }
 
-.drone-css .arm.right::after {
-  right: -12px;
-}
-
-/* ANIMATIONS */
-@keyframes drone-fly {
-  from {
-    transform: translateX(0) scale(0.95);
-  }
-  to {
-    transform: translateX(120vw) scale(1.05);
-  }
-}
-
-@keyframes drone-hover {
-  0%, 100% {
-    margin-top: 0;
-  }
-  50% {
-    margin-top: -12px;
-  }
+@keyframes gimbalMove {
+  0%,100% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(10deg); }
 }
 
 @keyframes spin {
-  to {
-    transform: translateY(-50%) rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* DISABLE ON MOBILE */
-@media (max-width: 768px) {
-  .drone-wrap {
-    display: none;
-  }
+@keyframes blink {
+  0%,70%,100% { opacity: 1; }
+  80% { opacity: 0.3; }
 }
 /* ===========================
-   REALISTIC DRONE (PRO)
+   RESPONSIVE DRONE SIZE
 =========================== */
 
-.drone-css {
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.45));
-  animation:
-    drone-fly 18s linear infinite,
-    drone-hover 2.8s ease-in-out infinite,
-    drone-blur 18s linear infinite;
-}
-
-/* BODY */
-.drone-css .body {
-  background: linear-gradient(
-    135deg,
-    #f5f5f5,
-    #dcdcdc
-  );
-  box-shadow:
-    inset 0 -2px 4px rgba(0,0,0,0.15),
-    0 12px 24px rgba(0,0,0,0.35);
-}
-
-/* CAMERA GIMBAL */
-.drone-css .cam {
-  animation: cam-swing 3s ease-in-out infinite;
-  transform-origin: top center;
-}
-
-.drone-css .cam .lens {
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    #5fd3ff,
-    #00111a 70%
-  );
-}
-
-/* LED LIGHT */
-.drone-css .led {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  width: 6px;
-  height: 6px;
-  background: red;
-  border-radius: 50%;
-  box-shadow: 0 0 6px red;
-  animation: led-blink 1.4s infinite;
-}
-
-/* PROPELLERS – FASTER & BLUR */
-.drone-css .arm::after {
-  animation: spin 0.35s linear infinite;
-  filter: blur(0.6px);
-}
-
-/* MOTION BLUR EFFECT */
-@keyframes drone-blur {
-  0%, 100% {
-    filter: blur(0px) drop-shadow(0 20px 30px rgba(0,0,0,0.45));
-  }
-  50% {
-    filter: blur(1.2px) drop-shadow(0 20px 30px rgba(0,0,0,0.45));
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  #scrollDrone {
+    right: 3%;
+    top: 100px;
+    transform: scale(0.8);
+    transform-origin: top right;
   }
 }
 
-/* CAMERA SWING */
-@keyframes cam-swing {
-  0%, 100% {
-    transform: translateX(-50%) rotate(2deg);
-  }
-  50% {
-    transform: translateX(-50%) rotate(-2deg);
-  }
-}
-
-/* LED BLINK */
-@keyframes led-blink {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 6px red;
-  }
-  50% {
-    opacity: 0.2;
-    box-shadow: 0 0 2px red;
+/* Mobile devices */
+@media (max-width: 768px) {
+  #scrollDrone {
+    right: 2%;
+    top: 90px;
+    transform: scale(0.65);
+    transform-origin: top right;
   }
 }
 
-/* HOVER INTERACTION */
-.drone-css:hover {
-  animation-play-state: paused;
-  transform: scale(1.1);
-  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.55));
-}
-
-/* SMOOTHER ON HIGH DPI */
-@media (prefers-reduced-motion: reduce) {
-  .drone-css {
-    animation: none;
+/* Very small phones */
+@media (max-width: 480px) {
+  #scrollDrone {
+    right: 8px;
+    top: 80px;
+    transform: scale(0.5);
+    transform-origin: top right;
   }
-}.drone-wrap {
-  opacity: 0;
-  transition: opacity 1s ease;
 }
-.drone-wrap.show {
-  opacity: 1;
-}
-
