@@ -70,26 +70,61 @@
     <!-- Easter egg grid -->
     <div class="rule-grid"></div>
   </div>
+<!-- DRONE -->
+<!-- PRO DRONE -->
+<div id="scrollDrone">
+  <div class="pro-drone">
 
-
-
-  <div class="drone-wrap">
-  <div class="drone-css">
+    <!-- Arms -->
     <span class="arm left"></span>
     <span class="arm right"></span>
 
-    <span class="body"></span>
+    <!-- Body -->
+    <div class="drone-body">
+      <span class="led led-left"></span>
+      <span class="led led-right"></span>
+    </div>
 
-    <!-- CAMERA -->
-    <span class="cam">
-      <span class="lens"></span>
-    </span>
+    <!-- Propellers -->
+    <div class="prop prop-left"></div>
+    <div class="prop prop-right"></div>
 
-    <!-- LED -->
-    <span class="led"></span>
+    <!-- Camera -->
+    <div class="gimbal">
+      <div class="camera"></div>
+    </div>
+
   </div>
 </div>
 
+<script>
+let lastScroll = 0;
+
+document.addEventListener("scroll", () => {
+  const drone = document.getElementById("scrollDrone");
+  if (!drone) return;
+
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = scrollTop / docHeight;
+
+  const minY = 100;
+  const maxY = window.innerHeight - 220;
+
+  const y = minY + progress * (maxY - minY);
+  drone.style.top = y + "px";
+
+  /* Direction tilt */
+  const delta = scrollTop - lastScroll;
+  const tilt = Math.max(-6, Math.min(6, delta / 20));
+  drone.style.transform = `rotate(${tilt}deg)`;
+
+  lastScroll = scrollTop;
+});
+</script>
+
+
+  
 </section>
 
 
@@ -522,22 +557,6 @@ window.addEventListener("load", () => {
     loader.remove();
   }, 800);
 });
-</script>
-<script>
-document.addEventListener("mousemove", e => {
-  const drone = document.querySelector(".drone-css");
-  if (!drone) return;
-
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 12;
-
-  drone.style.transform += ` rotateX(${y}deg) rotateY(${x}deg)`;
-});
-
-window.addEventListener("load", () => {
-  document.querySelector(".drone-wrap")?.classList.add("show");
-});
-
 </script>
 
 </body>
