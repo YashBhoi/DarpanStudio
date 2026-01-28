@@ -2,7 +2,710 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<title>Darpan Studio | Photography & Films</title><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 <title>Darpan Studio | Photography & Films</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/favicon/site.webmanifest">
+
+
+<!-- Font Awesome for social icons -->
+<!-- Font Awesome Free (Guaranteed working) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <!-- Lightbox -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="pageLoader">
+  <div class="lens-loader">
+    <div class="lens-ring"></div>
+
+    <!-- LOGO IN CENTER -->
+    <img
+      src="assets/imgs/icon_logo.png"
+      alt="Darpan Studio"
+      class="lens-logo"
+    />
+  </div>
+</div>
+
+
+  <header id="header"></header>
+
+<!-- HERO -->
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="glass hero-card hero-creative">
+     <!-- Easter Egg Button INSIDE CARD -->
+  <div class="egg-toggle" title="Toggle Rule of Thirds">
+    <i class="fas fa-camera-retro"></i>
+  </div>
+    <span class="camera-meta">ISO 200 • f/1.8 • 24mm</span>
+
+    <h1>
+      Capturing
+      <span class="accent">Timeless</span>
+      Moments
+    </h1>
+
+    <p>Wedding • Events • Corporate • Films</p>
+
+    <a href="#portfolio" class="btn hero-btn">
+      View Portfolio
+    </a>
+
+    <!-- Easter egg grid -->
+    <div class="rule-grid"></div>
+  </div>
+<!-- DRONE -->
+<div id="scrollDrone">
+  <div class="drone-scale"> <!-- SCALE WRAPPER -->
+
+    <div class="pro-drone">
+
+      <!-- Arms -->
+      <span class="arm left"></span>
+      <span class="arm right"></span>
+
+      <!-- Body -->
+      <div class="drone-body">
+        <span class="led led-left"></span>
+        <span class="led led-right"></span>
+      </div>
+
+      <!-- Propellers -->
+      <div class="prop prop-left"></div>
+      <div class="prop prop-right"></div>
+
+      <!-- Camera -->
+      <div class="gimbal">
+        <div class="camera"></div>
+      </div>
+
+    </div> <!-- pro-drone -->
+
+  </div> <!-- drone-scale -->
+</div>
+<script>const drone = document.querySelector("#scrollDrone .pro-drone");
+const wrapper = document.getElementById("scrollDrone");
+
+let startTime = null;
+
+function animateDrone(time) {
+  if (!startTime) startTime = time;
+  const t = (time - startTime) / 1000; // seconds
+
+  // Continuous symmetrical lean
+  const leanZ = Math.sin(t * 2) * 6;  // ±6° left-right
+  const leanX = Math.sin(t * 1.5) * 3; // ±3° forward/back
+
+  if (drone) {
+    drone.style.transform = `translateY(0) rotateZ(${leanZ}deg) rotateX(${leanX}deg)`;
+  }
+
+  requestAnimationFrame(animateDrone);
+}
+
+// Start lean animation
+requestAnimationFrame(animateDrone);
+
+// Scroll movement
+document.addEventListener("scroll", () => {
+  if (!wrapper) return;
+
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = scrollTop / docHeight;
+
+  const minY = 100;
+  const maxY = window.innerHeight - 220;
+
+  const y = minY + progress * (maxY - minY);
+  wrapper.style.top = y + "px"; // move drone down as page scrolls
+});
+
+</script>
+  
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <div class="glass about-card">
+   <p>
+  <strong>Darpan Studio</strong> is a professional photography & videography studio
+  capturing emotions, stories, and memories with a modern cinematic approach.
+  From weddings to corporate films, we reflect your moments beautifully.
+</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Services</h2>
+
+  <div class="services-grid">
+    <div class="glass service-card">
+       <!-- Corner SVG -->
+  <div class="service-icon">
+    <img src="assets/imgs/1.png" alt="Event Service">
+  </div>
+
+      <h3>Wedding Photography</h3>
+      <p>Complete wedding coverage with cinematic storytelling.</p>
+    </div>
+
+    <div class="glass service-card">
+      <div class="service-icon">
+    <img src="assets/imgs/2.png" alt="Pre-Wedding Service">
+  </div>
+      <h3>Pre-Wedding Shoots</h3>
+      <p>Creative outdoor & cinematic pre-wedding sessions.</p>
+    </div>
+
+    <div class="glass service-card">
+      <div class="service-icon">
+    <img src="assets/imgs/3.png" alt="Birthday & Events Service">
+  </div>
+      <h3>Birthday & Events</h3>
+      <p>Capturing joy, celebrations and candid moments.</p>
+    </div>
+
+    <div class="glass service-card">
+      <div class="service-icon">
+    <img src="assets/imgs/4.png" alt="Corporate & Products Service">
+  </div>
+      <h3>Corporate & Products</h3>
+      <p>Professional shoots for brands and businesses.</p>
+    
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">  
+  <h2>Portfolio</h2>
+  <p class="section-subtitle">
+    Explore our work across different photography categories
+  </p>
+
+  <div class="portfolio-cards">
+
+  <!-- WEDDING -->
+  <a href="gallery.html?cat=wedding"
+     class="portfolio-card glass"
+     style="background-image: url('assets/covers/wedding.png');"
+     data-bg="wedding">
+    <div class="portfolio-overlay">
+      <h3>Wedding</h3>
+      <span>View Gallery →</span>
+    </div>
+  </a>
+
+  <!-- PRE WEDDING -->
+  <a href="gallery.html?cat=prewedding"
+     class="portfolio-card glass"
+     style="background-image: url('assets/covers/pre-wed.png');"
+     data-bg="prewedding">
+    <div class="portfolio-overlay">
+      <h3>Pre-Wedding</h3>
+      <span>View Gallery →</span>
+    </div>
+  </a>
+
+  <!-- BIRTHDAY -->
+  <a href="gallery.html?cat=birthday"
+     class="portfolio-card glass"
+     style="background-image: url('assets/covers/birthday.png');"
+     data-bg="birthday">
+    <div class="portfolio-overlay">
+      <h3>Birthday</h3>
+      <span>View Gallery →</span>
+    </div>
+  </a>
+
+  <!-- CORPORATE -->
+  <a href="gallery.html?cat=corporate"
+     class="portfolio-card glass"
+     style="background-image: url('assets/covers/corporate.png');"
+     data-bg="corporate">
+    <div class="portfolio-overlay">
+      <h3>Corporate</h3>
+      <span>View Gallery →</span>
+    </div>
+  </a>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+
+  <div class="contact-grid">
+
+    <!-- CONTACT DETAILS -->
+    <div class="glass contact-details">
+  <h3>Get in Touch</h3>
+
+  <a href="tel:+918849376282" class="contact-item">
+    <i class="fa-solid fa-phone"></i>
+    <div>
+      <span>Phone</span>
+      <p>+91 8849376282</p>
+    </div>
+  </a>
+
+  <a href="https://wa.me/+918849376282" target="_blank" class="contact-item">
+    <i class="fa-brands fa-whatsapp"></i>
+    <div>
+      <span>WhatsApp</span>
+      <p>Chat on WhatsApp</p>
+    </div>
+  </a>
+
+  <a href="mailto:lenscraftstudio@gmail.com" class="contact-item">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <span>Email</span>
+      <p>darpanstudio@gmail.com</p>
+    </div>
+  </a>
+
+  <a
+    href="https://maps.google.com/?q=LensCraft+Studio+Ahmedabad"
+    target="_blank"
+    class="contact-item"
+  >
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <span>Address</span>
+      <p>
+        Darpan Studio,<br>
+        Matar,  District: Kheda, Gujarat, India
+      </p>
+    </div>
+  </a>
+</div>
+
+
+
+  <!-- MAP AT THE BOTTOM -->
+  <div class="glass map-box">
+    <iframe
+      src="https://www.google.com/maps/d/u/0/embed?mid=1q73TxpfmIMW0YX50Q1Nex__k65OBDbE&ehbc=2E312F&noprof=1"
+      width="100%"
+      height="350"
+      style="border:0; border-radius:18px;"
+      loading="lazy">
+    </iframe>
+  </div>
+
+</section>
+
+
+
+
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="js/gallery.js"></script>
+
+
+
+<script>
+document.getElementById("hamburger").onclick = () => {
+  document.getElementById("navMenu").classList.toggle("active");
+};
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const footer = document.querySelector("footer");
+  const floats = document.querySelectorAll(".float-btn");
+  const upBtn = document.querySelector(".up-btn");
+
+  /* Show / hide go-to-top */
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      upBtn.classList.add("show");
+    } else {
+      upBtn.classList.remove("show");
+    }
+  });
+
+  /* Footer interaction – MOVE buttons UP */
+  if (footer) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        floats.forEach(btn => {
+          if (entry.isIntersecting) {
+const shift = window.innerWidth < 768 ? 180 : 120;
+btn.style.transform = `translateY(-${shift}px)`;
+          } else {
+            btn.style.transform = "translateY(0)";
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(footer);
+  }
+});
+</script>
+
+<!-- Go To Top -->
+<div class="float-btn up-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Share -->
+<div class="float-btn share-btn" onclick="navigator.share ? navigator.share({title:document.title, url:window.location.href}) : alert('Sharing not supported')">
+  <i class="fas fa-share-alt"></i>
+</div>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/918849376282" class="float-btn wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const wa = document.querySelector(".wa-float");
+  const up = document.querySelector(".up-btn");
+  const footer = document.querySelector("footer");
+
+  /* Scroll visibility */
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      up.classList.add("show");
+    } else {
+      up.classList.remove("show");
+    }
+  });
+
+  /* Scroll to top */
+  up.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* Footer interaction */
+  if (footer) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            wa?.classList.add("hide");
+            up.classList.add("hide");
+          } else {
+            wa?.classList.remove("hide");
+            up.classList.remove("hide");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(footer);
+  }
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grids = document.querySelectorAll(".rule-grid");
+  const eggBtn = document.querySelector(".egg-toggle");
+
+  function toggleGrid() {
+    grids.forEach(grid => {
+      grid.style.display =
+        grid.style.display === "block" ? "none" : "block";
+    });
+
+    eggBtn?.classList.toggle("active");
+  }
+
+  /* Keyboard trigger */
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "g") {
+      toggleGrid();
+    }
+  });
+
+  /* Button trigger */
+  eggBtn?.addEventListener("click", toggleGrid);
+});
+</script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+<div class="share-modal" id="shareModal">
+  <div class="share-card glass" id="visitCard">
+
+    <h1>Darpan Studio</h1>
+    <p class="role">Photography & Films</p>
+
+    <div class="vc-line"></div>
+
+    <p>📞 +91 99999 99999</p>
+    <p>📍 Ahmedabad, Gujarat</p>
+    <p>🌐 darpanstudio.in</p>
+
+    <p class="copy-status" id="copyStatus"></p>
+
+    <div class="vc-actions">
+      <button id="shareNow">Share Card</button>
+      <button class="close-share">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const shareBtn = document.querySelector(".share-btn");
+  const modal = document.getElementById("shareModal");
+  const closeBtn = document.querySelector(".close-share");
+  const shareNow = document.getElementById("shareNow");
+
+  if (!shareBtn || !modal) return;
+
+  shareBtn.onclick = () => {
+    modal.style.display = "flex";
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  shareNow.onclick = async () => {
+    const { jsPDF } = window.jspdf;
+
+    // Visiting card size (90x50 mm)
+    const pdf = new jsPDF({
+      orientation: "landscape",
+      unit: "mm",
+      format: [90, 50]
+    });
+
+    // Background
+    pdf.setFillColor(20, 20, 20);
+    pdf.rect(0, 0, 90, 50, "F");
+
+    // Text
+    pdf.setTextColor(255, 255, 255);
+    pdf.setFontSize(14);
+    pdf.text("Darpan Studio", 45, 18, { align: "center" });
+
+    pdf.setFontSize(9);
+    pdf.text("Photography & Films", 45, 24, { align: "center" });
+
+    pdf.setFontSize(8);
+    pdf.text("📞 +91 99999 99999", 45, 32, { align: "center" });
+    pdf.text("📍 Ahmedabad, Gujarat", 45, 37, { align: "center" });
+    pdf.text("🌐 darpanstudio.in", 45, 42, { align: "center" });
+
+    const blob = pdf.output("blob");
+    const file = new File([blob], "Darpan-Studio-Card.pdf", {
+      type: "application/pdf"
+    });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        title: "Darpan Studio Visiting Card",
+        files: [file]
+      });
+    } else {
+      alert("PDF created. Your browser does not support direct sharing.");
+    }
+  };
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector("#home");
+  const floats = document.querySelectorAll(".float-btn");
+
+  if (!hero) return;
+
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      floats.forEach(btn => {
+        if (entry.isIntersecting) {
+          /* HERO visible → hide floats */
+          btn.classList.add("hide-hero");
+        } else {
+          /* HERO gone → show floats */
+          btn.classList.remove("hide-hero");
+        }
+      });
+    },
+    {
+      threshold: 0.6 /* hero mostly visible */
+    }
+  );
+
+  heroObserver.observe(hero);
+});
+</script>
+
+<footer id="footer"></footer>
+<script>
+fetch("partials/header.html").then(r => r.text()).then(d => header.innerHTML = d);
+fetch("partials/footer.html").then(r => r.text()).then(d => footer.innerHTML = d);
+</script>
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    loader.remove();
+  }, 800);
+});
+</script>
+<!-- LANGUAGE MODAL -->
+<div id="langModal" class="lang-modal">
+  <div class="lang-card glass">
+    <h3>Select Language</h3>
+
+    <button onclick="selectLang('en')">English</button>
+    <button onclick="selectLang('gu')">ગુજરાતી</button>
+  </div>
+</div>
+
+<!-- GOOGLE TRANSLATE (HIDDEN) -->
+<div id="google_translate_element"></div>
+
+<!-- FLOAT LANGUAGE BUTTON -->
+<div class="float-btn lang-btn" onclick="openLangModal()">
+  <i class="fas fa-language"></i>
+</div>
+<script>
+function openLangModal() {
+  document.getElementById("langModal").style.display = "flex";
+}
+
+function closeLangModal() {
+  document.getElementById("langModal").style.display = "none";
+}
+
+function selectLang(lang) {
+  localStorage.setItem("siteLang", lang);
+
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+      clearInterval(waitForTranslate);
+    }
+  }, 300);
+
+  closeLangModal();
+}
+
+/* Google Translate init */
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,gu',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+
+/* 🔥 FINAL + CORRECT FIRST LOAD FLOW */
+window.addEventListener("load", () => {
+  const savedLang = localStorage.getItem("siteLang");
+
+  // wait for loader fade + translate load
+  setTimeout(() => {
+    if (!savedLang) {
+      openLangModal(); // FIRST VISIT
+    } else {
+      const restore = setInterval(() => {
+        const select = document.querySelector(".goog-te-combo");
+        if (select) {
+          select.value = savedLang;
+          select.dispatchEvent(new Event("change"));
+          clearInterval(restore);
+        }
+      }, 300);
+    }
+  }, 900); // matches your loader removal timing
+});
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function selectLang(lang) {
+  localStorage.setItem("siteLang", lang);
+
+  // Change logo based on language
+  const logo = document.getElementById("siteLogo");
+  if (logo) {
+    if (lang === "gu") {
+      logo.src = "assets/imgs/logo-gu.png"; // Gujarati logo
+    } else {
+      logo.src = "assets/imgs/logo-en.png"; // English logo
+    }
+  }
+
+  // Close modal
+  document.getElementById("langModal").style.display = "none";
+
+  // Update Google Translate dropdown if needed
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang === "gu" ? "gu" : "en";
+      select.dispatchEvent(new Event("change"));
+      clearInterval(waitForTranslate);
+    }
+  }, 300);
+}
+</script>
+
+</body>
+
+</html>
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
