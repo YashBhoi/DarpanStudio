@@ -5,11 +5,44 @@
 <title>Darpan Studio: Gallery</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/favicon/site.webmanifest">
+
+
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- PAGE LOADER -->
+<div id="pageLoader">
+  <div class="lens-loader">
+    <div class="lens-ring"></div>
+
+    <!-- LOGO IN CENTER -->
+    <img
+      src="assets/imgs/icon_logo.png"
+      alt="Darpan Studio"
+      class="lens-logo"
+    />
+  </div>
+</div>
+
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    loader.remove();
+  }, 800);
+});
+</script>
 <section>
   <a href="index.html#portfolio" class="btn">← Back</a>
 
