@@ -126,7 +126,7 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 99%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,6 +135,17 @@ body {
   background-color: #ffffffe0;;
 
 }
+
+
+.glass.service-card {
+  background: #eee88e2b;
+}
+
+.glass.contact-details{
+background: #91e5d812;
+
+}
+
 
 .logo img {
   height: 30px;   /* 👈 change this number */
@@ -566,6 +577,7 @@ h3 {
 
 .map-box {
   max-width: 1100px;
+  background-color: #91e5d812;
 }
 
 .map-box iframe {
@@ -582,6 +594,9 @@ h3 {
   padding: 25px 30px;
   border-radius: 18px;
   text-align: center;
+  background-color: #e3e4e4;
+;
+  
 }
 
 .footer-top {
@@ -598,6 +613,7 @@ h3 {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  color:#000
 }
 
 .footer-title {
@@ -605,7 +621,7 @@ h3 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.4px;
-  color: rgba(255, 255, 255, 0.65);
+  color: black;
   margin-bottom: 12px;
   position: relative;
 }
@@ -617,7 +633,7 @@ h3 {
   width: 28px;
   height: 2px;
   margin-top: 6px;
-  background: linear-gradient(90deg, #ffffff, transparent);
+  background: linear-gradient(90deg, #000000, transparent);
   opacity: 0.6;
 }
 
@@ -640,7 +656,7 @@ h3 {
 
 .footer-links a {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   text-decoration: none;
   transition: 0.3s ease;
 }
@@ -648,7 +664,7 @@ h3 {
 
 
 .footer-links a:hover {
-  color: #f2c94c;
+  color: #000000b6;
 }
 
 /* Socials */
@@ -660,17 +676,17 @@ h3 {
 }
 
 .footer .socials a {
-  color: rgba(255, 255, 255, 0.85);
+  color: black;
   transition: 0.3s ease;
   text-decoration: none;
 }
 .socials a .social-text {
   font-size: 0.85rem;
-  color: #ccc;
+  color: black;
   transition: color 0.3s ease;
 }
 .footer .socials a:hover {
-  color: #f2c94c;
+  color: #000000b6;
 }
 
 /* Mobile view */
@@ -701,7 +717,7 @@ h3 {
     content: "•";
     position: absolute;
     left: 0;
-    color: #ffffff;
+    color: #000000;
   }
 
 }
@@ -713,7 +729,7 @@ h3 {
  position: relative;
   padding-top: 40px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* line before copyright */
@@ -728,7 +744,7 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255,255,255,0.4),
+    rgba(0, 0, 0, 0.4),
     transparent
   );
 }
@@ -794,7 +810,8 @@ h3 {
 
   .navbar {
     flex-wrap: wrap;
-    background-color: #ffffffe0;;
+    background-color: #ffffffe0;
+    width: 96%;
 
   }
 
@@ -1543,4 +1560,42 @@ body {
     opacity: 0.85;
     pointer-events: none;
   }
+}
+
+
+.lens-cap {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.lens-cap.removed {
+  transform: translateY(40px) rotate(45deg);
+  opacity: 0;
+}
+.rec-indicator {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.65);
+  margin-left: 10px;
+  user-select: none;
+}
+
+.rec-indicator .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  margin-right: 5px;
+  animation: recBlink 1.2s infinite;
+}
+
+@keyframes recBlink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.2; }
 }

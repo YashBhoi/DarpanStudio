@@ -43,8 +43,22 @@
       </a>
     </div>
   </div>
+  <span class="rec-indicator">
+  <span class="dot"></span> REC
+</span>
+
 
   <p class="copyright">
     © 2026 Darpan Studio. All Rights Reserved.
   </p>
+  <div class="lens-cap" title="Remove lens cap">
+  <i class="fa-solid fa-circle"></i>
+</div>
+
 </footer>
+
+<script>
+  document.querySelector('.lens-cap')?.addEventListener('click', function () {
+    this.classList.add('removed');
+  });
+</script>
