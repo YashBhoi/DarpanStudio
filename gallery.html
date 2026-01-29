@@ -31,28 +31,15 @@ body {
   padding: 10px 16px;
 }
 
-/* LEFT */
 .sticky-left {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .sticky-left img {
   height: 34px;
 }
 
-/* BACK BUTTON */
-.btn {
-  text-decoration: none;
-  color: #fff;
-  background: #e50914;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-/* RIGHT */
 .sticky-right {
   display: flex;
   gap: 10px;
@@ -79,7 +66,7 @@ body {
 =========================== */
 .gallery-sticky-bar {
   position: sticky;
-  top: 58px;
+  top: 44px;
   z-index: 40;
   display: flex;
   justify-content: space-between;
@@ -87,15 +74,31 @@ body {
   background: #000000b5;
   backdrop-filter: blur(10px);
   padding: 6px 16px;
-  font-size: 12px;
 }
 
 .gallery-sticky-bar h2 {
   margin: 0;
   font-size: 14px;
+  text-align: center;
+  flex: 1;
 }
 
-/* FILTERS */
+/* BACK BUTTON */
+.back-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background: #e50914;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.back-btn .txt { margin-left: 6px; }
+
+/* FILTER BUTTONS */
 .filter-buttons {
   display: flex;
   gap: 8px;
@@ -116,39 +119,6 @@ body {
   color: #fff;
 }
 
-@media (max-width: 768px){
-
-.sticky-top-bar {
-    padding: 12px 12px;
-    gap: 30px;
-  }
-
-  .sticky-left img {
-    height: 20px;
-  }
-
-  .sticky-right a {
-    font-size: 6px;
-    padding: 5px 10px;
-  }
-
-  .gallery-sticky-bar {
-    top: 70px;
-    padding: 4px px;
-    font-size: 11px;
-  }
-
- .gallery-sticky-bar h2 {
-    font-size: 12px;
-  }
-
-
-  .gallery-sticky-bar .btn{
-       display: none;
-
-  }
-
-}
 /* ===========================
    GALLERY
 =========================== */
@@ -161,7 +131,7 @@ body {
 .gallery a {
   break-inside: avoid;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 3px;
 }
 
 .gallery img,
@@ -170,10 +140,101 @@ body {
   border-radius: 16px;
 }
 
-/* MOBILE */
+/* ===========================
+   FLOATING BUTTONS (CENTER)
+=========================== */
+.fab-container {
+  position: fixed;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===========================
+   LANGUAGE POPUP
+=========================== */
+.lang-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lang-popup.active { display: flex; }
+
+.lang-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.lang-box button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* HIDE GOOGLE BAR */
+.goog-te-banner-frame,
+.goog-te-balloon-frame { display: none !important; }
+body { top: 0 !important; }
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
-  .gallery { column-count: 2; column-gap: 8px; padding: 8px; }
-  .gallery-sticky-bar { top: 48px; }
+  /* First bar smaller */
+
+  .gallery {
+    column-count: 2;
+  }
+  .gallery-sticky-bar{    position: sticky;
+    top: 58px;
+    z-index: 40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000000b5;
+    backdrop-filter: blur(10px);
+    padding: 6px 16px;
+    padding-bottom: 1px;
+    padding-top: 12px;
+}
+  .sticky-left img { height: 20px; }
+  .sticky-right { gap: 6px; margin-left: 33px;}
+  .sticky-right a { font-size: 10px; padding: 4px 10px; }
+
+  /* Second bar: only arrow on mobile back */
+  .back-btn .txt { display: none; }
+  .gallery-sticky-bar h2 { font-size: 12px; }
+
+  /* Filters smaller */
+  .filter { font-size: 10px; padding: 4px 10px; }
+
 }
 </style>
 </head>
@@ -183,41 +244,120 @@ body {
 <!-- FIRST STICKY BAR -->
 <div class="sticky-top-bar">
   <div class="sticky-left">
-    <!-- BACK FIRST -->
-
-    <!-- LOGO AFTER -->
     <a href="index.html#portfolio">
-      <img src="assets/imgs/logo-en.png" alt="Darpan Studio">
+      <img id="siteLogo" src="assets/imgs/logo-en.png" alt="Darpan Studio">
     </a>
   </div>
-
-  <!-- CATEGORIES -->
-  <div class="sticky-right" id="categoryMenu"></div>
+  <div class="sticky-right" id="categoryMenu">
+    <!-- Example Categories -->
+    <a href="#" class="active">Weddings</a>
+    <a href="#">Portraits</a>
+    <a href="#">Events</a>
+  </div>
 </div>
 
 <!-- SECOND STICKY BAR -->
 <div class="gallery-sticky-bar">
-      <a href="index.html#portfolio" class="btn">  <span class="arrow">←</span>
-<span class="txt">Back</span></a>
-
+  <a href="index.html#portfolio" class="back-btn">
+    <span class="arrow">←</span>
+    <span class="txt">Back</span>
+  </a>
   <h2 id="galleryTitle">Gallery</h2>
   <div class="filter-buttons">
-    <label class="filter active">
-      <input type="radio" name="filter" value="all" checked> All
-    </label>
-    <label class="filter">
-      <input type="radio" name="filter" value="photos"> Photos
-    </label>
-    <label class="filter">
-      <input type="radio" name="filter" value="videos"> Videos
-    </label>
+    <label class="filter active"><input type="radio" name="filter" value="all" checked> All</label>
+    <label class="filter"><input type="radio" name="filter" value="photos"> Photos</label>
+    <label class="filter"><input type="radio" name="filter" value="videos"> Videos</label>
   </div>
 </div>
 
+<!-- GALLERY -->
 <div class="gallery" id="gallery"></div>
 
+<!-- GLightbox -->
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script src="js/gallery-page.js"></script>
+
+<!-- FLOATING BUTTONS -->
+<div class="fab-container">
+  <button class="fab" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+  <button class="fab" id="shareBtn"><i class="fas fa-share-alt"></i></button>
+  <button class="fab" id="langBtn"><i class="fas fa-language"></i></button>
+</div>
+
+<!-- LANGUAGE POPUP -->
+<div class="lang-popup" id="langPopup">
+  <div class="lang-box">
+    <h4>Select Language</h4>
+    <button data-lang="en">English</button>
+    <button data-lang="gu">ગુજરાતી</button>
+  </div>
+</div>
+
+<!-- GOOGLE TRANSLATE CONTAINER -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+// SCROLL TOP
+document.getElementById("scrollTopBtn").onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+// SHARE BUTTON
+document.getElementById("shareBtn").onclick = async () => {
+  const url = location.href;
+  if (navigator.share) await navigator.share({ title: "Darpan Studio", url });
+  else { navigator.clipboard.writeText(url); alert("Link copied!"); }
+};
+
+// LANGUAGE POPUP
+const langPopup = document.getElementById("langPopup");
+document.getElementById("langBtn").onclick = () => langPopup.classList.add("active");
+langPopup.onclick = e => { if(e.target === langPopup) langPopup.classList.remove("active"); };
+
+// ============================
+// LANGUAGE SWITCH ONE-CLICK
+// ============================
+function setLanguage(lang){
+  localStorage.setItem("siteLang", lang);
+
+  // Change Logo Immediately
+  const logo = document.getElementById("siteLogo");
+  if(logo) logo.src = lang === "gu" ? "assets/imgs/logo-gu.png" : "assets/imgs/logo-en.png";
+
+  // Apply Google Translate ASAP
+  let attempts=0;
+  const maxAttempts=15;
+  const applyTranslate = () => {
+    const combo = document.querySelector(".goog-te-combo");
+    if(combo){
+      combo.value = lang;
+      combo.dispatchEvent(new Event("change"));
+      return;
+    }
+    attempts++;
+    if(attempts<maxAttempts) setTimeout(applyTranslate,200);
+  };
+  applyTranslate();
+}
+
+// BUTTON EVENTS
+document.querySelectorAll(".lang-box button").forEach(btn => {
+  btn.onclick = () => { setLanguage(btn.dataset.lang); langPopup.classList.remove("active"); };
+});
+
+// RESTORE LANGUAGE ON PAGE LOAD
+window.onload = () => {
+  setTimeout(()=>{ setLanguage(localStorage.getItem("siteLang") || "en"); }, 1200);
+};
+</script>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: 'en', includedLanguages:'en,gu', autoDisplay:false },
+    'google_translate_element'
+  );
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
