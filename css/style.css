@@ -336,6 +336,18 @@ h3 {
   border-radius: 16px;
   margin-bottom: 18px;
 }
+/* ===========================
+   FIXED / STICKY FILTER BAR
+=========================== */
+.gallery-controls {
+  position: sticky;
+  top: 64px; /* adjust if navbar height changes */
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 8px 6px;
+  border-radius: 14px;
+}
 
 /* ===========================
    MOBILE MASONRY FIX

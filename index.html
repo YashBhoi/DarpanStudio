@@ -127,15 +127,23 @@ document.addEventListener("scroll", () => {
   if (!wrapper) return;
 
   const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const docHeight =
+    document.body.scrollHeight - window.innerHeight;
+
   const progress = scrollTop / docHeight;
 
+  const isMobile = window.innerWidth < 768;
+
   const minY = 100;
-  const maxY = window.innerHeight - 220;
+  const maxY = isMobile
+    ? window.innerHeight - 180  // 📱 mobile gap
+    : window.innerHeight - 380; // 🖥️ desktop gap
 
   const y = minY + progress * (maxY - minY);
-  wrapper.style.top = y + "px"; // move drone down as page scrolls
+
+  wrapper.style.top = y + "px";
 });
+
 
 </script>
   
@@ -350,24 +358,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Footer interaction – MOVE buttons UP */
-  if (footer) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        floats.forEach(btn => {
-          if (entry.isIntersecting) {
-const shift = window.innerWidth < 768 ? 180 : 120;
-btn.style.transform = `translateY(-${shift}px)`;
-          } else {
-            btn.style.transform = "translateY(0)";
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+  const observer = new IntersectionObserver(
+  ([entry]) => {
+    floats.forEach(btn => {
+      if (entry.isIntersecting) {
+        const gap = window.innerWidth < 768 ? 200 : 420; // ⬅️ MORE GAP
+        btn.style.transform = `translateY(-${gap}px)`;
+      } else {
+        btn.style.transform = "translateY(0)";
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 
-    observer.observe(footer);
-  }
-});
+observer.observe(footer);
+
+}
+);
 </script>
 
 <!-- Go To Top -->
@@ -576,8 +584,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <footer id="footer"></footer>
 <script>
-fetch("partials/header.html").then(r => r.text()).then(d => header.innerHTML = d);
-fetch("partials/footer.html").then(r => r.text()).then(d => footer.innerHTML = d);
+fetch("partials/header.html")
+  .then(r => r.text())
+  .then(d => {
+    header.innerHTML = d;
+
+    /* ✅ HAMBURGER WORKS NOW */
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+    }
+  });
+  
+  fetch("partials/footer.html").then(r => r.text()).then(d => footer.innerHTML = d);
 </script>
 
 <script>
