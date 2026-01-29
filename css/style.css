@@ -22,6 +22,14 @@ body {
   color: white;
 }
 
+/* HIDE GOOGLE TRANSLATE TOP BAR COMPLETELY */
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-spinner-pos {
+  display: none !important;
+}
 /* ===========================
    GLASS EFFECT
 =========================== */
