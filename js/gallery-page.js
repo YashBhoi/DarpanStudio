@@ -22,15 +22,29 @@ const data = {
     "gallery/wedding/14.jpg",
     "gallery/wedding/15.jpg"
   ],
+
+  prewedding: [
+    "gallery/prewedding/1.jpg",
+    "gallery/prewedding/2.jpg",
+    "gallery/prewedding/1.mp4"
+  ],
+
   birthday: [
     "gallery/birthday/1.jpg",
     "gallery/birthday/2.mp4",
     "gallery/birthday/3.jpg"
   ],
+
   corporate: [
     "gallery/corporate/1.mp4",
     "gallery/corporate/2.jpg",
     "gallery/corporate/3.mp4"
+  ],
+
+  drone: [
+    "gallery/drone/1.mp4",
+    "gallery/drone/2.mp4",
+    "gallery/drone/1.jpg"
   ]
 };
 
@@ -39,8 +53,10 @@ const data = {
 // ===========================
 const categoryNames = {
   wedding: "Wedding",
+  prewedding: "Pre-Wedding",
   birthday: "Birthday",
-  corporate: "Corporate"
+  corporate: "Corporate",
+  drone: "Drone Shoot"
 };
 
 // ===========================
@@ -66,6 +82,7 @@ menuEl.innerHTML = Object.keys(data)
     </a>
   `)
   .join("");
+
 
 // ===========================
 // SET GALLERY TITLE
@@ -163,3 +180,4 @@ filterRadios.forEach(radio => {
     renderGallery(radio.value);
   });
 });
+
