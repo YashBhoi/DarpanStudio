@@ -316,13 +316,8 @@ document.addEventListener("scroll", () => {
 
   <!-- MAP AT THE BOTTOM -->
   <div class="glass map-box">
-    <iframe
-      src="https://www.google.com/maps/d/u/0/embed?mid=1q73TxpfmIMW0YX50Q1Nex__k65OBDbE&ehbc=2E312F&noprof=1"
-      width="100%"
-      height="350"
-      style="border:0; border-radius:18px;"
-      loading="lazy">
-    </iframe>
+   
+    <iframe src="https://www.google.com/maps/d/embed?mid=1Ulwm03_KsPco_esPoo5wmisoIF5Jv00&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
   </div>
 
 </section>
@@ -471,88 +466,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<div class="share-modal" id="shareModal">
-  <div class="share-card glass" id="visitCard">
 
-    <h1>Darpan Studio</h1>
-    <p class="role">Photography & Films</p>
 
-    <div class="vc-line"></div>
-
-    <p>📞 +91 99999 99999</p>
-    <p>📍 Ahmedabad, Gujarat</p>
-    <p>🌐 darpanstudio.in</p>
-
-    <p class="copy-status" id="copyStatus"></p>
-
-    <div class="vc-actions">
-      <button id="shareNow">Share Card</button>
-      <button class="close-share">Close</button>
-    </div>
-
-  </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const shareBtn = document.querySelector(".share-btn");
-  const modal = document.getElementById("shareModal");
-  const closeBtn = document.querySelector(".close-share");
-  const shareNow = document.getElementById("shareNow");
-
-  if (!shareBtn || !modal) return;
-
-  shareBtn.onclick = () => {
-    modal.style.display = "flex";
-  };
-
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-
-  shareNow.onclick = async () => {
-    const { jsPDF } = window.jspdf;
-
-    // Visiting card size (90x50 mm)
-    const pdf = new jsPDF({
-      orientation: "landscape",
-      unit: "mm",
-      format: [90, 50]
-    });
-
-    // Background
-    pdf.setFillColor(20, 20, 20);
-    pdf.rect(0, 0, 90, 50, "F");
-
-    // Text
-    pdf.setTextColor(255, 255, 255);
-    pdf.setFontSize(14);
-    pdf.text("Darpan Studio", 45, 18, { align: "center" });
-
-    pdf.setFontSize(9);
-    pdf.text("Photography & Films", 45, 24, { align: "center" });
-
-    pdf.setFontSize(8);
-    pdf.text("📞 +91 99999 99999", 45, 32, { align: "center" });
-    pdf.text("📍 Ahmedabad, Gujarat", 45, 37, { align: "center" });
-    pdf.text("🌐 darpanstudio.in", 45, 42, { align: "center" });
-
-    const blob = pdf.output("blob");
-    const file = new File([blob], "Darpan-Studio-Card.pdf", {
-      type: "application/pdf"
-    });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        title: "Darpan Studio Visiting Card",
-        files: [file]
-      });
-    } else {
-      alert("PDF created. Your browser does not support direct sharing.");
-    }
-  };
-});
-</script>
 
 
 
@@ -721,6 +636,69 @@ function selectLang(lang) {
   }, 300);
 }
 </script>
+<div class="share-modal" id="cardShareModal">
+  <div class="share-card glass">
+
+    <h3>Share Visiting Card</h3>
+
+    <div class="card-preview">
+      <img src="assets/imgs/ENG.png" alt="English Card">
+      <img src="assets/imgs/Guj.png" alt="Gujarati Card">
+    </div>
+
+    <div class="vc-actions">
+      <button id="shareCardsBtn">Share Both</button>
+      <button class="close-share" id="cancelShare">Cancel</button>
+    </div>
+
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const shareBtn = document.querySelector(".share-btn");
+  const modal = document.getElementById("cardShareModal");
+  const cancelBtn = document.getElementById("cancelShare");
+  const shareCardsBtn = document.getElementById("shareCardsBtn");
+
+  if (!shareBtn || !modal) return;
+
+  // open modal
+  shareBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  // close modal
+  cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // share both PNG cards
+  shareCardsBtn.addEventListener("click", async () => {
+    try {
+      const en = await fetch("assets/imgs/ENG.png").then(r => r.blob());
+      const gu = await fetch("assets/imgs/Guj.png").then(r => r.blob());
+
+      const files = [
+        new File([en], "Darpan-Studio-English.png", { type: "image/png" }),
+        new File([gu], "Darpan-Studio-Gujarati.png", { type: "image/png" })
+      ];
+
+      if (navigator.canShare && navigator.canShare({ files })) {
+        await navigator.share({
+          title: "Darpan Studio Visiting Card",
+          files
+        });
+      } else {
+        alert("Sharing not supported on this device.");
+      }
+    } catch (e) {
+      alert("Unable to share cards");
+      console.error(e);
+    }
+  });
+});
+</script>
+
 
 </body>
 

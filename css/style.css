@@ -138,7 +138,7 @@ body {
 
 
 .glass.service-card {
-  background: #eee88e2b;
+  background: #171d1f;
 }
 
 .glass.contact-details{
@@ -239,6 +239,17 @@ h3 {
   margin: 3px 0 20px;
 }
 
+@media (max-width: 768px) {
+
+  h2{
+      font-size: 1.5rem;
+    margin-top: 27px;  }
+
+    .section-subtitle{
+      margin-bottom: 20px;
+    }
+}
+
 /* ===========================
    PORTFOLIO
 =========================== */
@@ -246,6 +257,16 @@ h3 {
   opacity: 0.7;
   margin-bottom: 40px;
   max-width: 600px;
+}
+
+@media (max-width: 768px) {
+
+    .section-subtitle{
+              margin-bottom: 20px;
+        margin-top: -24px;
+        font-size: 12px;
+    }
+    
 }
 
 /* PORTFOLIO GRID */
@@ -594,7 +615,7 @@ h3 {
   padding: 25px 30px;
   border-radius: 18px;
   text-align: center;
-  background-color: #e3e4e4;
+  background-color: #171d1f;
 ;
   
 }
@@ -621,7 +642,7 @@ h3 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.4px;
-  color: black;
+  color: #ffffff;
   margin-bottom: 12px;
   position: relative;
 }
@@ -633,7 +654,7 @@ h3 {
   width: 28px;
   height: 2px;
   margin-top: 6px;
-  background: linear-gradient(90deg, #000000, transparent);
+  background: linear-gradient(90deg, #ffffff, transparent);
   opacity: 0.6;
 }
 
@@ -656,7 +677,7 @@ h3 {
 
 .footer-links a {
   font-size: 0.85rem;
-  color: black;
+  color: #ffffff;
   text-decoration: none;
   transition: 0.3s ease;
 }
@@ -676,13 +697,13 @@ h3 {
 }
 
 .footer .socials a {
-  color: black;
+  color: #ffffff;
   transition: 0.3s ease;
   text-decoration: none;
 }
 .socials a .social-text {
   font-size: 0.85rem;
-  color: black;
+  color: #ffffff;
   transition: color 0.3s ease;
 }
 .footer .socials a:hover {
@@ -717,7 +738,7 @@ h3 {
     content: "•";
     position: absolute;
     left: 0;
-    color: #000000;
+    color: #ffffff;
   }
 
 }
@@ -729,7 +750,7 @@ h3 {
  position: relative;
   padding-top: 40px;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #ffffffab;
 }
 
 /* line before copyright */
@@ -741,12 +762,8 @@ h3 {
   transform: translateX(-50%);
   width: 60%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 0, 0, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 57%), transparent)
+  ;
 }
 
 @media (max-width: 768px) {
@@ -1624,7 +1641,7 @@ body {
 .rec-indicator {
   font-size: 12px;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.65);
+  color: #ffffffb3;
   user-select: none;
   white-space: nowrap;
 }
@@ -1657,8 +1674,8 @@ body {
 .focus-points span {
   width: 10px;
   height: 10px;
-  border: 1px solid rgba(255,255,255,0.6);
-  box-shadow: 0 0 4px rgba(255,255,255,0.4);
+  border: 1px solid #ffffffb3;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 .footer:hover .focus-points {
   opacity: 1;
@@ -1691,4 +1708,22 @@ body {
        width: 6px;
     height: 6px;
   }
+}
+
+.card-preview {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.card-preview img {
+  width: 140px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+
+.glass.about-card{
+  background: #171d1f;
 }
