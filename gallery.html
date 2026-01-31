@@ -73,7 +73,7 @@ body {
 }
 
 .sticky-right a.active {
-  background: #e50914;
+  background: #329fbb;
   color: #fff;
 }
 
@@ -82,12 +82,12 @@ body {
 =========================== */
 .gallery-sticky-bar {
   position: sticky;
-  top: 44px;
+  top: 57px;
   z-index: 40;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #000000b5;
+  background: #171d1f;
   backdrop-filter: blur(10px);
   padding: 6px 16px;
 }
@@ -106,7 +106,7 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  background: #e50914;
+  background: #329fbb;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -131,7 +131,7 @@ body {
 .filter input { display: none; }
 
 .filter.active {
-  background: #e50914;
+  background: #329fbb;
   color: #fff;
 }
 
@@ -375,5 +375,9 @@ function googleTranslateElementInit() {
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+<footer id="footer"></footer>
+<script>  fetch("partials/footer.html").then(r => r.text()).then(d => footer.innerHTML = d);
+</script>
 </body>
 </html>

@@ -494,9 +494,9 @@ h3 {
 
 /* ACTIVE FILTER */
 .filter.active {
-  background: #e50914; /* 🔴 red */
+  background: #329fbb; /* 🔴 red */
   color: #fff;
-  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.45);
+  box-shadow: 0 4px 14px #329fbb85;
 }
 
 /* ===========================
@@ -933,11 +933,7 @@ h3 {
   color: white;
 }
 .up-btn {
-  bottom: calc(
-    var(--float-gap) + 
-    (var(--float-size) * 2) + 
-    28px
-  );
+  bottom: 187PX;
 
   color: white;
   opacity: 0;
@@ -1559,12 +1555,8 @@ h3 {
 
 /* Language button position */
 .lang-btn {
-  bottom: 300px;
-  bottom: calc(var(--float-gap) + (var(--float-size) * 3) + 42px);}
-
-  /* ===============================
-   NUCLEAR GOOGLE TRANSLATE HIDE
-================================ */
+  bottom: 131PX
+}
 
 .goog-te-banner-frame,
 .goog-te-banner,
@@ -1730,4 +1722,3 @@ body {
 .glass.about-card{
   background: #171d1f;
 }
-
