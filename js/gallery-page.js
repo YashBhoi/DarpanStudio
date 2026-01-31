@@ -24,27 +24,88 @@ const data = {
   ],
 
   prewedding: [
-    "gallery/prewedding/1.jpg",
+   "gallery/prewedding/1.jpg",
     "gallery/prewedding/2.jpg",
-    "gallery/prewedding/1.mp4"
+    "gallery/prewedding/3.jpg",
+    "gallery/prewedding/4.jpg",
+    "gallery/prewedding/5.jpg",
+    "gallery/prewedding/1.mp4",
+    "gallery/prewedding/6.jpg",
+    "gallery/prewedding/7.jpg",
+    "gallery/prewedding/8.jpg",
+    "gallery/prewedding/9.jpg",
+    "gallery/prewedding/10.jpg",
+    "gallery/prewedding/11.jpg",
+    "gallery/prewedding/2.mp4",
+    "gallery/prewedding/12.jpg",
+    "gallery/prewedding/13.jpg",
+    "gallery/prewedding/3.mp4",
+    "gallery/prewedding/14.jpg",
+    "gallery/prewedding/15.jpg"
   ],
 
   birthday: [
     "gallery/birthday/1.jpg",
+    "gallery/birthday/2.jpg",
+    "gallery/birthday/3.jpg",
+    "gallery/birthday/4.jpg",
+    "gallery/birthday/5.jpg",
+    "gallery/birthday/1.mp4",
+    "gallery/birthday/6.jpg",
+    "gallery/birthday/7.jpg",
+    "gallery/birthday/8.jpg",
+    "gallery/birthday/9.jpg",
+    "gallery/birthday/10.jpg",
+    "gallery/birthday/11.jpg",
     "gallery/birthday/2.mp4",
-    "gallery/birthday/3.jpg"
+    "gallery/birthday/12.jpg",
+    "gallery/birthday/13.jpg",
+    "gallery/birthday/3.mp4",
+    "gallery/birthday/14.jpg",
+    "gallery/birthday/15.jpg"
+
   ],
 
   corporate: [
-    "gallery/corporate/1.mp4",
+    "gallery/corporate/1.jpg",
     "gallery/corporate/2.jpg",
-    "gallery/corporate/3.mp4"
+    "gallery/corporate/3.jpg",
+    "gallery/corporate/4.jpg",
+    "gallery/corporate/5.jpg",
+    "gallery/corporate/1.mp4",
+    "gallery/corporate/6.jpg",
+    "gallery/corporate/7.jpg",
+    "gallery/corporate/8.jpg",
+    "gallery/corporate/9.jpg",
+    "gallery/corporate/10.jpg",
+    "gallery/corporate/11.jpg",
+    "gallery/corporate/2.mp4",
+    "gallery/corporate/12.jpg",
+    "gallery/corporate/13.jpg",
+    "gallery/corporate/3.mp4",
+    "gallery/corporate/14.jpg",
+    "gallery/corporate/15.jpg"
   ],
 
   drone: [
+     "gallery/drone/1.jpg",
+    "gallery/drone/2.jpg",
+    "gallery/drone/3.jpg",
+    "gallery/drone/4.jpg",
+    "gallery/drone/5.jpg",
     "gallery/drone/1.mp4",
+    "gallery/drone/6.jpg",
+    "gallery/drone/7.jpg",
+    "gallery/drone/8.jpg",
+    "gallery/drone/9.jpg",
+    "gallery/drone/10.jpg",
+    "gallery/drone/11.jpg",
     "gallery/drone/2.mp4",
-    "gallery/drone/1.jpg"
+    "gallery/drone/12.jpg",
+    "gallery/drone/13.jpg",
+    "gallery/drone/3.mp4",
+    "gallery/drone/14.jpg",
+    "gallery/drone/15.jpg"
   ]
 };
 
