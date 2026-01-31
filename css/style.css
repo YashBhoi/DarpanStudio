@@ -685,7 +685,7 @@ h3 {
 
 
 .footer-links a:hover {
-  color: #000000b6;
+  color: #ffffffa0;
 }
 
 /* Socials */
@@ -707,9 +707,12 @@ h3 {
   transition: color 0.3s ease;
 }
 .footer .socials a:hover {
-  color: #000000b6;
+  color: #ffffffa0;
 }
 
+.footer .socials a .social-text:hover {
+  color: #ffffffa0;
+}
 /* Mobile view */
 @media (max-width: 768px) {
   .footer .socials {
@@ -1727,3 +1730,4 @@ body {
 .glass.about-card{
   background: #171d1f;
 }
+
