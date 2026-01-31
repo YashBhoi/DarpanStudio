@@ -10,7 +10,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
 }
 
 html {
@@ -20,7 +19,16 @@ html {
 body {
   background: #0e0e11;
   color: white;
+  font-family: 'Alkatra', cursive;
+
 }
+
+:lang(gu) {
+  font-family: 'Hind Vadodara', 'Noto Sans Gujarati', sans-serif;
+    letter-spacing: 0.3px;
+
+}
+
 
 /* HIDE GOOGLE TRANSLATE TOP BAR COMPLETELY */
 .skiptranslate,
@@ -233,6 +241,8 @@ section {
 h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
+    font-family: 'Saira', sans-serif;
+
 }
 
 h3 {
@@ -1639,6 +1649,8 @@ body {
   color: #ffffffb3;
   user-select: none;
   white-space: nowrap;
+    font-family: "Inter", sans-serif;
+
 }
 
 .rec-indicator .dot {
