@@ -20,8 +20,9 @@ body {
   background: #0e0e11;
   color: white;
   font-family: 'Alkatra', cursive;
-
 }
+
+
 
 :lang(gu) {
   font-family: 'Hind Vadodara', 'Noto Sans Gujarati', sans-serif;
@@ -762,7 +763,7 @@ h3 {
 .footer .copyright {
  position: relative;
   padding-top: 40px;
-  font-size: 13px;
+  font-size: 12px;
   color: #ffffffab;
 }
 
@@ -1620,7 +1621,7 @@ body {
 @media (max-width: 768px) {
   .service-icon {
    position: absolute;
-    top: 35px;
+    top: 55px;;
     right: -5px;
     width: 102px;
     height: 115px;
