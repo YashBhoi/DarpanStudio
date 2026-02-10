@@ -1815,3 +1815,109 @@ body {
 .glass.about-card{
   background: #171d1f;
 }
+
+
+.film-camera {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* Metal gate + vignette */
+  box-shadow:
+    inset 0 0 40px rgba(0,0,0,0.9),
+    inset 0 0 120px rgba(0,0,0,0.95);
+}
+.film-strip-real {
+  position: absolute;
+  inset: -60px;
+  background:
+    /* Edge numbers (fake Kodak markings) */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.08) 0 2px,
+      transparent 2px 120px
+    ),
+
+    /* Vertical scratches */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0 1px,
+      transparent 1px 10px
+    ),
+
+    /* Grain */
+    repeating-radial-gradient(
+      circle,
+      rgba(255,255,255,0.035) 0 1px,
+      transparent 1px 3px
+    );
+
+  animation: filmWeave 0.9s steps(2) infinite;
+}
+.film-strip-real::before,
+.film-strip-real::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  height: 30px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #000 0 16px,
+      transparent 16px 32px
+    );
+
+  opacity: 0.95;
+  animation: sprocketRoll 1.6s steps(4) infinite;
+}
+
+.film-strip-real::before { top: 0; }
+.film-strip-real::after  { bottom: 0; }
+@keyframes filmWeave {
+  0%   { transform: translate(0,0); }
+  20%  { transform: translate(-0.6px, 0.4px); }
+  40%  { transform: translate(0.5px, -0.5px); }
+  60%  { transform: translate(-0.4px, -0.3px); }
+  80%  { transform: translate(0.3px, 0.4px); }
+  100% { transform: translate(0,0); }
+}
+@keyframes sprocketRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-32px); }
+}
+.hero-bg-video {
+  animation: exposureFlicker 4.8s infinite steps(1);
+}
+
+@keyframes exposureFlicker {
+  0%   { filter: brightness(1) contrast(1); }
+  40%  { filter: brightness(1.03) contrast(1.02); }
+  70%  { filter: brightness(0.98) contrast(1); }
+  100% { filter: brightness(1); }
+}
+.film-camera::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 28%, rgba(255,255,255,0.25), transparent 2%),
+    radial-gradient(circle at 65% 42%, rgba(255,255,255,0.2), transparent 1.8%),
+    radial-gradient(circle at 40% 75%, rgba(255,255,255,0.18), transparent 2.2%);
+  animation: dustPop 6s infinite;
+}
+
+@keyframes dustPop {
+  0%, 90% { opacity: 0; }
+  92% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+.hero-bg-video { z-index: 0; }
+.hero-overlay  { z-index: 1; }
+.film-camera   { z-index: 2; }
+.hero-card,
+#scrollDrone   { z-index: 3; }
+
